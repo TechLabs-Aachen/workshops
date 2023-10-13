@@ -1,0 +1,88 @@
+p {
+  margin: 0.5rem;
+}
+
+.container-column {
+  color: white;
+  display: flex;
+  height: 100%;
+}
+
+.sidenav {
+  flex-basis: 25%;
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+}
+
+.posts {
+  flex-basis: 65%;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+
+  border-left-color: grey;
+  border-left-width: 1px;
+  border-left-style: solid;
+
+  border-right-color: grey;
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
+.posts .header {
+  min-height: 120px;
+  width: 100%;
+  border-bottom-color: grey;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.discover {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.discover .header {
+  min-height: 70px;
+  width: 100%;
+  border-bottom-color: grey;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.posts .tweet {
+  display: flex;
+  padding: 2rem;
+  flex:1;
+  align-items: start;
+  border-bottom-color: grey;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.tweet .profile {
+  border-radius: 50%;
+  height: 50px;
+}
+
+.tweet .post {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.tweet .interact {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.tweet .preview {
+  height: 300px;
+}
