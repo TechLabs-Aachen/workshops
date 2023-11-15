@@ -1,11 +1,14 @@
 ---
+title: Git Workshop
 author: TechLabs Aachen e.V.
 ---
+
 # Git Workshop 🎉
 
 > Git is a very popular tool for version control! 
 
 A workshop by TechLabs Aachen e.V.
+
 
 ## What is Version Control?
 
@@ -22,19 +25,13 @@ We could do all of this manually but with a small tool, we can automate all of t
 
 > Question: How do you backup/manage history of files e.g. for your thesis?
 
----
+<!-- end_slide -->
 
-```
- _______   _______ .___  ___.   ______   
-|       \ |   ____||   \/   |  /  __  \  
-|  .--.  ||  |__   |  \  /  | |  |  |  | 
-|  |  |  ||   __|  |  |\/|  | |  |  |  | 
-|  '--'  ||  |____ |  |  |  | |  `--'  | 
-|_______/ |_______||__|  |__|  \______/  
-                                         
-```
 
----
+> Question: Do you prefer the easy or the hard way of learning git?
+
+
+<!-- end_slide -->
 
 # First Principles of Git
 
@@ -49,6 +46,8 @@ A snapshot is a **copy** of the file at a certain point in time.
 
 ```
 These snapshots are called **commits**. We store those commits in a kind of log.
+
+<!-- end_slide -->
 
 ## Git operates in repositories
 
@@ -68,7 +67,8 @@ We can create a repository like so (the current directory will be the repository
 
 To understand this, we have to talk about Git's state model first!
 
----
+
+<!-- end_slide -->
 
 # Git's State Model
 
@@ -79,13 +79,15 @@ Git has **3 different states** for each file:
 - **Committed**: The file has been committed i.e. snapshot is saved in our log.
 
 The state automata could be draw like so
-
 ```
 [committed] - change -> [ modified ] - staging -> [ staged ] - committing -> [ committed ] -> ...
 ```
----
+
+<!-- end_slide -->
 
 # Modified Files
+
+We may change files. This automatically puts them in the modified state.
 
 ```
                 ><
@@ -96,6 +98,8 @@ We can modify files
 - by changing the contents of the file
 - by creating a new file
 - by deleting an existing file
+
+<!-- end_slide -->
 
 ## **How do we find out the state of our files?**
 
@@ -114,6 +118,7 @@ Untracked files:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
+
 ## What files are in the modified state?
 
 > That's easy! It is `a.txt`. Sometimes you will see things like `name/` (note the /)
@@ -124,7 +129,8 @@ no changes added to commit (use "git add" and/or "git commit -a")
 > Untracked files are files with some changes file that has never been committed yet. 
 > We can handle them like just like modified files.
 
----
+
+<!-- end_slide -->
 
 # Staged Files
 ```
@@ -164,6 +170,8 @@ Now we see both files are marked as staged.
 
 ---
 
+<!-- end_slide -->
+
 # Committed Files
 ```
                                                                    ><
@@ -180,7 +188,7 @@ Once we staged our files, we can commit them like so:
 > You are required to add a commit message in `"..."`! Typically, you want to
 > describe what modifications you made here.
 
----
+<!-- end_slide -->
 
 # TLDR: Basic Git Workflow (for now)
 
@@ -221,7 +229,7 @@ This will set your username and email address for the current repository only:
 
 The later one will overwrite the global settings!
 
----
+<!-- end_slide -->
 
 # Our first Promise: Reverting changes
 
@@ -246,6 +254,8 @@ Date:   Fri Oct 6 12:43:27 2023 +0200
     cool changes                                                <= this is the commit message
 ```
 
+<!-- end_slide -->
+
 Here, we have the history of 2 commits with their commit message, author and date.
 Note that there also is a **commit hash** (the long string of numbers and letters). 
 We can use this hash to reference the commit we want to go back to.
@@ -257,14 +267,12 @@ that like so:
 ❯ git reset 9d26ee1                <-- dont have to type the whole hash, just enough to be unique (use TAB)
 HEAD is now at 9d26ee1 cool changes
 ```
-We can also specify a file we want to go back using `git reset --hard <hash> -- <file>`. 
-This will undo the changes on the files after the commit with the given hash. 
-You can now change the file again and commit it as normal.
+This will undo all the changes after the commit with the given hash. You can undo a 
+reset with `git reset HEAD@{1}`.
 
-> Question: What could be a potential drawback of this approach? How do we know what a good 
-commit to go back is?
+> Question:  How do we know what a good commit to go back is?
 
----
+<!-- end_slide -->
 
 # Our second Promise: Effective Collaboration
 
@@ -277,10 +285,12 @@ When working in a group, ideally, group members want to work on different
 things at the same time since this parallelizes work! Git allows us to do that
 using **branches**.
 
-> A branch is a history or timeline of commits that is independent of other branches.
+> A branch is a history or timeline of commits.
 
 Naturally, there must be one branch (often referred to as `main`) because a
 branch is a history of commits!
+
+<!-- end_slide -->
 
 We can view all branches using 
 
@@ -315,7 +325,7 @@ branch from now on. For example, we may end up in a situation like this:
 
 > Question: Remember reverting? Could we revert branch-a to `commit#2`?
 
----
+<!-- end_slide -->
 
 # Creating branches & switching between them 
 
@@ -351,13 +361,15 @@ running into any conflicts.
 > Question: What would happen with our modification and commits when we switch branches?
 Are they gone??
 
----
+<!-- end_slide -->
 
 # Merging branches
 
 Now, let's we are is done with our work. In this case, we want our changes to 
 - be added to a branch that everybody agrees to be the 'this is what we want'
 - shared with other collaborators so that they can benefit from our work
+
+<!-- end_slide -->
 
 The first one is quite easy! Typically, the `main` branch is the one that everybody 
 agrees on to be the 'this stuff here is working'. Hence, we would only have to merge
@@ -383,6 +395,9 @@ our `branch-a` to `main`.
                                              +--------------+                                            
 ```
 
+
+<!-- end_slide -->
+
 We will show how to do this next...
 
 But let's think about how to we can satisfy the second goal? It turns out that
@@ -392,7 +407,7 @@ Hence, there is no proper way to share our code!
 
 > Question: How would `branch-b` now merge to `main` (after `branch-a` already did)? 
 
----
+<!-- end_slide -->
 
 # Remote Repositories
 
@@ -404,6 +419,8 @@ To be able to share our code, we must link our local repository to a remote repo
 There are two main ways to do this:
 - create a remote repository and clone it to your PC 
 - create a local repository and link/push it to a remote repository
+
+<!-- end_slide -->
 
 ## Cloning
 
@@ -417,6 +434,8 @@ e.g. using the Github website. Then, we would simply do
 This will create a new folder with the name of the repository and copy the
 remotely stored files into your local folder. This is the easiest way to get
 started!
+
+<!-- end_slide -->
 
 ## Adding Remote Repositories
 
@@ -433,7 +452,7 @@ Note that we must still create the remote repository on Github first (to get a
 
 > Question: Why do we need the second method??
 
----
+<!-- end_slide -->
 
 # Syncing with Remote Repositories
 
@@ -442,6 +461,8 @@ Now, that we understand the concept of remote repositories, we need a way to
 - push changes from our local to the remote repository
 
 Remember, this only works properly after we linked our local repository to a remote.
+
+<!-- end_slide -->
 
 ## Getting changes from the remote repositories
 
@@ -457,10 +478,12 @@ To achieve the first one, we can use
 ❯ git pull
 ```
 
-> This looks up any commits in the remote repositories on our branch, collects them and 
+This looks up any commits in the remote repositories on our branch, collects them and 
 copies them to our local branch advancing your commit history. This only
 adds commits to your local branch, so `pull` will not add commits on any other
 branch on your local repository but only the active one. 
+
+<!-- end_slide -->
 
 For our second options, we can use 
 ```
@@ -482,7 +505,7 @@ Internally, `pull` will also perform a `fetch` first!
 
 > Question: How would we switch to `branch-b` now?
 
----
+<!-- end_slide -->
 
 # Pushing our changes to the remote repository
 
@@ -511,6 +534,8 @@ Let's start with the first one. We can push a local branch to a remote branch li
 Btw: this your git will also give you this tip if you forget to do this! It will create 
 the remote branch named `branch-a` and apply your commits to it. 
 
+<!-- end_slide -->
+
 Alternatively, we can visit e.g. GitHub and create a remote branch in their web
 interface. You should know how checkout this branch!
 
@@ -518,7 +543,7 @@ interface. You should know how checkout this branch!
 
 > Question: When would you want to use the second method over the first one?
 
----
+<!-- end_slide -->
 
 # TLDR; Wrapping up everything
 
@@ -552,7 +577,7 @@ interface. You should know how checkout this branch!
 ## Undoing changes
 
 - view history of commits using `git log`
-- Undo changes to a file using `git reset <hash>` or `git reset <hash> -- <file>` for a specific file
+- Undo changes to a file using `git reset <hash>`
 
 ## Branching & Remote Repositories
 
@@ -566,6 +591,5 @@ interface. You should know how checkout this branch!
 - Pushing changes to the remote repository
   - `git push` to push commits of the current branch to the remote repository (already linked)
   - `git push -set-upstream origin <branch>` to create a remote branch and push commits to it
-  
 
 
