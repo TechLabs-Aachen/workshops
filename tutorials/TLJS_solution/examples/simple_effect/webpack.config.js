@@ -4,6 +4,7 @@ module.exports = {
   resolve: {
     alias: {
       Stylesheet: `${__dirname}/css`
+      //tljs: `${__dirname}/../../src/runtime/tljs.js`,
     },
   },
   module: {
@@ -14,10 +15,10 @@ module.exports = {
       },
     ],
   },
-  entry: ["./dist/nested/App.js",],
+  entry: ["./dist/simple_effect/App.js",],
   mode: "production",
   output: {
-    path: `${__dirname}/build/nested`,
+    path: `${__dirname}/build/simple_effect`,
     filename: "tl_bundle.js",
   },
   plugins: [

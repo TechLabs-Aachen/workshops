@@ -23,6 +23,9 @@ function HelloWorld() {
         <div>I am wrappend!</div>
         <div>
           <p>And Nested too!</p>
+          <Wrapper>
+            <div>WrapCEPTION</div>
+          </Wrapper>
         </div>
       </Wrapper>
     </div>
