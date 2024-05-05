@@ -200,69 +200,7 @@ while (i < 25) {
 
 <!-- end_slide -->
 
-
-### Task 3: Fizzbuzz v2
-
-For numbers 1 to 25 (inclusive) do the following:
-- print out "Fizz" if the number is divisible by 3
-- print out "Buzz" if the number is divisible by 5
-- print out "FizzBuzz" if the number is divisible by 3 and 5
-
-BUT you must use a while loop/no for loop!
-
-<!-- end_slide -->
-
-
-## Functions
-
-Functions allow us to reuse code. Some general guidelines:
-- a function signature is what name it has and what arguments it takes
-- a function body is what it does
-- a function returns values (or nothing) using the `return` keyword
-- we say "call" a function when we want to use it execute its body with
-some arguments. Often we store the value of the return in a variable
-using `=` operator.
-
 ```js
-function adding(argument1, argument2) {
-  let some_value = argument1 + argument2 
-  return some_value
-}
-
-const a = adding(2, 3) // call the function
-const b = adding("a", "b") // call the function
-```
-
-Note that now we just dynamically typed. If we can `+`, then we can add!
-
-<!-- end_slide -->
-
-### Task 3: Estimate Pi using the Leibniz Series
-
-Some smart people have found a way to estimate Pi using an infinite series. 
-- Pi is `3.14159265359`
-
-Approximate Pi using `pi = 4 * (1 - 1/3 + 1/5 - 1/7 + 1/9 - 1/11 + ...)`.
-
-We will refer to each `1/n` as one term. 
-
-Write a function that takes a number `n` and returns the approximation of Pi
-with `n` terms. 
-
-```js
-function estimate_pi(n) {
-  let pi = 0
-  ... // calculate pi
-  return pi
-}
-
-const esitmated_pi = estimate_pi(0) // will be 4
-console.log(esitmated_pi)
-```
-
-> What `n` do you need to get 3.1415? 
-
-<!-- end_slide -->
 
 ## Strings, Arrays, Objects
 
@@ -400,39 +338,7 @@ Most common dictionary operations:
 
 <!-- end_slide -->
 
-### Task 6: Merge two Arrays into a Object, and revert
-
-You are given two Arrays of equal length. Write a function `merge_obj`
-that takes merge the two arrays into an object. The first array contains
-keys and the second array contains values. Write a function `revert_obj`
-that takes an object and returns two arrays: an array of keys and an array
-of values.
-
 ```js
-function merge_obj(keys, values) {
-  my_obj = {}
-  ...
-  return my_obj
-}
-
-function revert_obj(my_dict) {
-  keys = []
-  values = []
-  ...
-  return [keys, values]
-}
-
-const list1 = ["key2", "key1", "key3"]
-const list2 = [2, 1, 3]
-
-const merged_dict = merge_dict(list1, list2)
-const [split_keys, split_values] = revert_dict(merged_dict)
-```
-
-> Does merging then reverting result in the same arrrays as `list1` and `list2` (original)?
-
-<!-- end_slide -->
-
 That's it for the basics for now!
 ---
 
