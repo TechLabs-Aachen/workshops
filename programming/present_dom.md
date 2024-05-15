@@ -145,4 +145,12 @@ Hint: Use `document.createElement("li")` and `appendChild(child)` to add an item
 ```html
 <img src="pictures/cat.jpg" alt="this is cat">
 ```
-But that's not fun, right?
+But that's not fun, right? Let's fetch it from an API:
+```js
+async  function getDog() {
+    const response = await fetch("https://dog.ceo/api/breeds/image/random");
+    const json = await response.json();
+    const img = document.getElementsByTagName("img")[0];
+    img.src = json.message;
+}
+```
